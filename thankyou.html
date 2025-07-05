@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+            gap: 150px;
+        }
+
+        body {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            /* background-size: 400% 400%; */
+            --dot-bg: black;
+            --dot-color: rgb(234, 36, 162);
+            --dot-size: 1px;
+            --dot-space: 22px;
+            background:
+                linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+                linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+                var(--dot-color);
+            animation: backgroundMove 1s ease infinite;
+        }
+
+        @keyframes backgroundMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            border: 4px solid rgba(254, 12, 48, 0.2);
+            /* Opaque border */
+            border-radius: 30px;
+            box-shadow: 0 0 40px rgba(192, 26, 26, 0.6), 0 0 60px rgba(255, 0, 255, 0.2), 0 0 100px rgba(0, 255, 255, 0.2);
+            animation: borderGlow 3s infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes borderGlow {
+            0% {
+                box-shadow: 0 0 10px rgba(207, 34, 34, 0.2), 0 0 30px rgba(255, 0, 255, 0.1), 0 0 60px rgba(0, 255, 255, 0.1);
+            }
+
+            100% {
+                box-shadow: 0 0 60px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 0, 255, 0.3), 0 0 100px rgba(0, 255, 255, 0.3);
+            }
+        }
+
+        .thankyou-container {
+            background: white;
+            padding: 10px;
+            height: 150px;
+            width: auto;
+            border-radius: 10px;
+            box-shadow: 2px 16px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .thankyou-container h1 {
+            color: #11cdde;
+            margin-bottom: 20px;
+        }
+
+        /* .thankyou-container a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }*/
+        .thankyou-container {
+            position: relative;
+            overflow: hidden;
+            transition: all 2s;
+            z-index: 2;
+            box-shadow: 8px 8px 18px 0px #aae1ec;
+        }
+
+        .thankyou-container:hover {
+            box-shadow: 8px 8px 30px 0px rgb(249, 3, 44);
+            transform: scale(1.5);
+        }
+
+        .thankyou-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(270deg, #7c586e, #7873f5, #586d60, #bd7ba2);
+            background-size: 800% 800%;
+            animation: gradientMove 8s ease infinite;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 01s ease;
+            z-index: -1;
+
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .thankyou-container:hover::before {
+            transform: scaleX(1);
+            /* box-shadow: 2px 16px 16px pink; */
+        }
+
+
+        .btn-pink {
+            background-color: #e84949;
+            width: fit-content;
+            padding: 0.2rem 1.3rem;
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 7px 0px #0000003f;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.5s;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+            border: solid 3px transparent;
+        }
+
+        .btn-pink a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn-pink::before {
+            content: "";
+            background-color: #180606;
+            position: absolute;
+            top: 0px;
+            left: 0;
+            right: 0;
+            bottom: 0px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: all 1.5s;
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+        .btn-pink:hover::before {
+            transform: scaleX(1);
+            /* cursor: pointer; */
+        }
+
+        .btn-pink:hover {
+            border: solid 3px orangered;
+            color: rgb(235, 227, 227);
+            border-radius: 10px;
+        }
+
+        #btn-bottom {
+            display: none;
+        }
+
+        .btn-pink:active {
+            transform: scale(0.5);
+            box-shadow: 2px 2px 16px 16px #0000003f;
+        }
+
+        .circle-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid white;
+            z-index: 2;
+            margin-top: 0;
+            box-shadow: 2px 2px 32px 0px rgb(235, 232, 232);
+            transition: all 1s;
+        }
+
+        .circle-image:hover {
+            transform: scale(1.5);
+        }
+
+        .circle-image img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="circle-image">
+            <img src="images/user_asset/Rohit_1.jpg" alt="Profile">
+        </div>
+        <div class="thankyou-container">
+            <h1>Thank You! 🎉</h1>
+            <p>Your message has been successfully sent.</p>
+            <button type="button" class="btn-pink">
+                <a href="index.html">Back to Home</a>
+            </button>
+        </div>
+
+    </div>
+</body>
+
+</html
